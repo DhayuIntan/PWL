@@ -4,7 +4,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactUsController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +23,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/about', [AboutController::class, 'about']);
-Route::get('/articles/{id}', [ArticleController::class, 'articles']);
+// Route::get('/', [HomeController::class, 'index']);
+
+Route::prefix('products')->group(function(){
+    Route::get('/', [ProductController::class, 'index']);
+    Route::get('/marbel-edu-game', function (){
+        return "Marbel Edu Game";
+    });
+    Route::get('/marbel-and-friends-kids-games', function (){
+        return "Marbel and Friends Kids Games";
+    });
+    Route::get('/riri-story-books', function (){
+        return "Riri Story Books";
+    });
+    Route::get('/kolak-kids-song', function (){
+        return "Kolak Kids Song";
+    });
+});
+
+Route::get('/news/{param}', [NewsController::class, 'param']);
+
+Route::prefix('program')->group(function(){
+    Route::get('/', [ProgramController::class, 'index']);
+    Route::get('/karir', function (){
+        return "Karir";
+    });
+    Route::get('/magang', function (){
+        return "Magang";
+    });
+    Route::get('/kunjungan-industri', function (){
+        return "Kunjungan Industri";
+    });
+});
+
+Route::get('/aboutus', [AboutUsController::class, 'index']);
+Route::get('/contactus', [ContactUsController::class, 'index']);
