@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'hi']);
-
+Route::get('/', function (){
+    echo "Selamat Datang";
+});
+Route::get('/about', function (){
+    echo "Nama saya Dhayu Intan Nareswari, NIM saya 2141720026";
+});
+Route::get('/articles/{id}', function ($id){
+    echo "Halaman artikel dengan id = $id";
+});
