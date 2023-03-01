@@ -9,6 +9,8 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\PengalamanController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,7 +25,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+Route::get('/profile/{param}/{ttl}/{alamat}', [ProfileController::class, 'index'])->name('profile');
+Route::get('/pengalaman', [PengalamanController::class, 'experience'])->name('pengalaman');
 
 Route::prefix('products')->group(function(){
     Route::get('/', [ProductController::class, 'index']);
@@ -41,7 +45,7 @@ Route::prefix('products')->group(function(){
     });
 });
 
-Route::get('/news/{param}', [NewsController::class, 'param']);
+Route::get('/news/{param}', [NewsController::class, 'show']);
 
 Route::prefix('program')->group(function(){
     Route::get('/', [ProgramController::class, 'index']);

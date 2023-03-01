@@ -13,7 +13,7 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        return "Contact Us: dhayuintan@gmail.com";
+        return view('contactus');
     }
 
     /**
