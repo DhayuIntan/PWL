@@ -37,7 +37,8 @@
           </div>
         </div>
         <div class="card-body">
-          Pengembang sistem informasi ini adalah Dhayu Intan Nareswari. Saya adalah mahasiswa Politeknik Negeri Malang yang berasal dari D-IV Teknik Informatika.
+          Pengembang sistem informasi ini adalah Dhayu Intan Nareswari. Saya adalah mahasiswa Politeknik Negeri Malang
+          yang berasal dari D-IV Teknik Informatika.
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
