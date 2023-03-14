@@ -52,6 +52,54 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('artikel')}}" class="nav-link">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Artikel
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('siswa')}}" class="nav-link">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Siswa
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('dosen')}}" class="nav-link">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Dosen
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('hobi')}}" class="nav-link">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Hobi
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('matkul')}}" class="nav-link">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Matkul
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('keluarga')}}" class="nav-link">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Keluarga
+                    </p>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(ArtikelModelSeeder::class);
-        // \App\Models\User::factory(10)->create();
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call(HobiModelSeeder::class);
+        $this->call(MatkulModelSeeder::class);
+        $this->call(KeluargaModelSeeder::class);
+        $this->call(SiswaModelSeeder::class);
+        $this->call(DosenModelSeeder::class);
     }
 }

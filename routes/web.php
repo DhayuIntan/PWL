@@ -12,6 +12,11 @@ use App\Http\Controllers\ArtikelModelController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SiswaModelController;
+use App\Http\Controllers\DosenModelController;
+use App\Http\Controllers\HobiModelController;
+use App\Http\Controllers\MatkulModelController;
+use App\Http\Controllers\KeluargaModelController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -63,4 +68,9 @@ Route::prefix('program')->group(function(){
 
 Route::get('/aboutus', [AboutUsController::class, 'index']);
 Route::get('/contactus', [ContactUsController::class, 'index']);
-Route::get('/artikel', [ArtikelModelController::class, 'index']);
+Route::get('/artikel', [ArtikelModelController::class, 'index'])->name('artikel');
+Route::get('/siswa', [SiswaModelController::class, 'index'])->name('siswa');
+Route::get('/dosen', [DosenModelController::class, 'index'])->name('dosen');
+Route::get('/hobi', [HobiModelController::class, 'index'])->name('hobi');
+Route::get('/matkul', [MatkulModelController::class, 'index'])->name('matkul');
+Route::get('/keluarga', [KeluargaModelController::class, 'index'])->name('keluarga');
