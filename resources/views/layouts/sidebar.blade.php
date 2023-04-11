@@ -27,6 +27,14 @@
             <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
             <li class="nav-item">
+                <a href="{{url('mahasiswa')}}" class="nav-link">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Mahasiswa
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{route('dashboard')}}" class="nav-link">
                     <i class="nav-icon far fa-image"></i>
                     <p>
@@ -77,7 +85,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('hobi')}}" class="nav-link">
+                <a href="{{url('hobi')}}" class="nav-link">
                     <i class="nav-icon far fa-image"></i>
                     <p>
                         Hobi
@@ -85,7 +93,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('matkul')}}" class="nav-link">
+                <a href="{{url('matkul')}}" class="nav-link">
                     <i class="nav-icon far fa-image"></i>
                     <p>
                         Matkul
@@ -93,7 +101,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('keluarga')}}" class="nav-link">
+                <a href="{{url('keluarga')}}" class="nav-link">
                     <i class="nav-icon far fa-image"></i>
                     <p>
                         Keluarga

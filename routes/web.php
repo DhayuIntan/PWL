@@ -17,7 +17,9 @@ use App\Http\Controllers\SiswaModelController;
 use App\Http\Controllers\DosenModelController;
 use App\Http\Controllers\HobiModelController;
 use App\Http\Controllers\MatkulModelController;
+use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\KeluargaModelController;
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +43,10 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/', [HobiModelController::class, 'index'])->name('dashboard');
     Route::get('/profile/{param}/{ttl}/{alamat}', [ProfileController::class, 'index'])->name('profile');
     Route::get('/pengalaman', [PengalamanController::class, 'experience'])->name('pengalaman');
+    Route::resource('/mahasiswa', MahasiswaController::class);
+    Route::resource('/matkul', MatkulModelController::class);
+    Route::resource('/hobi', HobiModelController::class);
+    Route::resource('/keluarga', KeluargaModelController::class);
 
     Route::prefix('products')->group(function(){
         Route::get('/', [ProductController::class, 'index']);
@@ -78,8 +84,6 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/artikel', [ArtikelModelController::class, 'index'])->name('artikel');
     Route::get('/siswa', [SiswaModelController::class, 'index'])->name('siswa');
     Route::get('/dosen', [DosenModelController::class, 'index'])->name('dosen');
-    Route::get('/hobi', [HobiModelController::class, 'index'])->name('hobi');
-    Route::get('/matkul', [MatkulModelController::class, 'index'])->name('matkul');
-    Route::get('/keluarga', [KeluargaModelController::class, 'index'])->name('keluarga');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
