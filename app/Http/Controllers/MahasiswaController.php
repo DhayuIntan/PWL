@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
+use App\Models\Kelas;
 use App\Models\MahasiswaModel;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mhs = MahasiswaModel::all();
-        return view('mahasiswa.mahasiswa', ['mhs' => $mhs]);
+        $mhs = MahasiswaModel::with('kelas')->get();
+        $paginate = MahasiswaModel::orderBy('id', 'asc')->paginate(3);
+        return view('mahasiswa.mahasiswa', ['mhs' => $mhs,'paginate' => $paginate]);
     }
 
     /**
@@ -26,7 +28,8 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        return view('mahasiswa.create_mahasiswa')
+        $kelas=Kelas::all();
+        return view('mahasiswa.create_mahasiswa', ['kelas'=>$kelas])
             ->with('url_form', url('/mahasiswa'));
     }
 
@@ -46,6 +49,7 @@ class MahasiswaController extends Controller
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|string|max:255',
             'hp' => 'required|digits_between:6,15',
+            'kelas_id' => 'required',
         ]);
 
         $data = MahasiswaModel::create($request->except(['_token']));
@@ -59,9 +63,10 @@ class MahasiswaController extends Controller
      * @param  \App\Models\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function show(MahasiswaModel $mahasiswa)
+    public function show($id)
     {
-        //
+        $mhs = MahasiswaModel::with('kelas')->find($id);
+        return view('mahasiswa.detail', ['mhs' => $mhs]);
     }
 
     /**
@@ -73,9 +78,10 @@ class MahasiswaController extends Controller
     public function edit($id)
     {
         $mahasiswa = MahasiswaModel::find($id);
-        return view('mahasiswa.create_mahasiswa')
-                    ->with('mhs', $mahasiswa)
-                    ->with('url_form', url('/mahasiswa/'.$id));
+        return view('mahasiswa.create_mahasiswa', [
+            'url_form' => url("/mahasiswa/" . $id),
+            'mhs' => $mahasiswa, 'kelas' => Kelas::all()
+        ]);
     }
 
     /**
@@ -95,6 +101,7 @@ class MahasiswaController extends Controller
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|string|max:255',
             'hp' => 'required|digits_between:6,15',
+            'kelas_id' => 'required',
         ]);
 
         $data = MahasiswaModel::where('id', '=', $id)->update($request->except(['_token', '_method']));

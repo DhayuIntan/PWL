@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Mata Kuliah</h1>
+            <h1>Mahasiswa</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Mata Kuliah</li>
+              <li class="breadcrumb-item active">Mahasiswa</li>
             </ol>
           </div>
         </div>
@@ -24,7 +24,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">kelas : TI-2A</h3>
+          <h3 class="card-title">List Mahasiswa</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -47,6 +47,7 @@
                   <th>Nama</th>
                   <th>JK</th>
                   <th>HP</th>
+                  <th>Kelas</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -59,15 +60,20 @@
                       <td>{{$m->nama}}</td>
                       <td>{{$m->jk}}</td>
                       <td>{{$m->hp}}</td>
+                      <td>{{$m->kelas->nama_kelas}}</td>
                       <td>
-                        <!-- Bikin tombol edit dan delete -->
-                        <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+                        <div class="btn-group">
+                            <!-- Bikin tombol edit dan delete -->
+                            <a href="{{ url('/mahasiswa/'. $m->id) }}" class="btn btn-sm btn-primary mr-2">show</a>
 
-                        <form method="POST" action="{{ url('/mahasiswa/'.$m->id) }}" >
-                          @csrf
-                          @method('DELETE')
-                          <button type="submit" class="btn btn-sm btn-danger">hapus</button>
-                        </form>
+                            <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning mr-2">edit</a>
+
+                            <form method="POST" action="{{ url('/mahasiswa/'.$m->id) }}" >
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger mr-2">hapus</button>
+                            </form>
+                        </div>
                       </td>
                     </tr>
                   @endforeach

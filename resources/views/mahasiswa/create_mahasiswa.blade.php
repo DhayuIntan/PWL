@@ -75,7 +75,7 @@
                 <div class="form-group">
                     <label>Tanggal Lahir</label>
                     <input class="form-control @error('tanggal_lahir') is-invalid @enderror"
-                    value="{{ isset($mhs)? $mhs->tanggal_lahir : old('tanggal_lahir') }}" name="tanggal_lahir" type="text"
+                    value="{{ isset($mhs)? $mhs->tanggal_lahir : old('tanggal_lahir') }}" name="tanggal_lahir" type="date"
                     placeholder="Masukkan Tanggal Lahir"/>
                     @error('tanggal_lahir')
                         <span class="error invalid-feedback">{{ $message }}</span>
@@ -97,6 +97,14 @@
                     @error('hp')
                         <span class="error invalid-feedback">{{ $message }}</span>
                     @enderror
+                </div>
+                <div class="form-group">
+                    <label for="Kelas">Kelas</label>
+                    <select name="kelas_id" class="form-control">
+                        @foreach ($kelas as $kls)
+                            <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Submit">
