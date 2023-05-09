@@ -15,7 +15,7 @@ class MatkulModelSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('matkul_models')->insert([[
+        DB::table()->insert([[
             'kode_matkul' => 'RTI214001',
             'nama_matkul' => 'Kewarganegaraan',
             'dosen_matkul' => 'Widaningsih Condrowardhani, SH, MH.',

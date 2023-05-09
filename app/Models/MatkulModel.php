@@ -8,13 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class MatkulModel extends Model
 {
     use HasFactory;
-    protected $table = 'matkul_models';
-    protected $primaryKey = 'id_matkul';
+    protected $table = 'matakuliah';
+    protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'kode_matkul',
         'nama_matkul',
-        'dosen_matkul',
         'sks',
+        'jam',
+        'semester',
     ];
+
+    public function mahasiswa_matakuliah(){
+        return $this->hasMany(Mahasiswa_MataKuliah::class);
+    }
 }

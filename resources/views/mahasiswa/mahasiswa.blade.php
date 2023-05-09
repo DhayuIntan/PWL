@@ -68,6 +68,8 @@
 
                             <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning mr-2">edit</a>
 
+                            <a href="{{ url('/mm/'. $m->id) }}" class="btn btn-sm btn-success mr-2">nilai</a>
+
                             <form method="POST" action="{{ url('/mahasiswa/'.$m->id) }}" >
                             @csrf
                             @method('DELETE')

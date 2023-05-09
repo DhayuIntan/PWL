@@ -20,6 +20,7 @@ use App\Http\Controllers\MatkulModelController;
 use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\KeluargaModelController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\MahasiswaMatakuliah;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/profile/{param}/{ttl}/{alamat}', [ProfileController::class, 'index'])->name('profile');
     Route::get('/pengalaman', [PengalamanController::class, 'experience'])->name('pengalaman');
     Route::resource('/mahasiswa', MahasiswaController::class);
+    Route::resource('/mm', MahasiswaMatakuliah::class);
     Route::resource('/matkul', MatkulModelController::class);
     Route::resource('/hobi', HobiModelController::class);
     Route::resource('/keluarga', KeluargaModelController::class);
