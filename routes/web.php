@@ -21,6 +21,8 @@ use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\KeluargaModelController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MahasiswaMatakuliah;
+use App\Http\Controllers\ArtikelController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -67,6 +69,10 @@ Route::middleware(['auth'])->group(function(){
     });
 
     Route::get('/news/{param}', [NewsController::class, 'show']);
+
+    Route::resource('/articles', ArticleController::class);
+
+    Route::get('/article/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
 
     Route::prefix('program')->group(function(){
         Route::get('/', [ProgramController::class, 'index']);
