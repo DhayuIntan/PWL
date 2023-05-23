@@ -42,7 +42,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
     Route::get('/', [HobiModelController::class, 'index'])->name('dashboard');
     Route::get('/profile/{param}/{ttl}/{alamat}', [ProfileController::class, 'index'])->name('profile');
     Route::get('/pengalaman', [PengalamanController::class, 'experience'])->name('pengalaman');
@@ -52,18 +52,18 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/hobi', HobiModelController::class);
     Route::resource('/keluarga', KeluargaModelController::class);
 
-    Route::prefix('products')->group(function(){
+    Route::prefix('products')->group(function () {
         Route::get('/', [ProductController::class, 'index']);
-        Route::get('/marbel-edu-game', function (){
+        Route::get('/marbel-edu-game', function () {
             return "Marbel Edu Game";
         });
-        Route::get('/marbel-and-friends-kids-games', function (){
+        Route::get('/marbel-and-friends-kids-games', function () {
             return "Marbel and Friends Kids Games";
         });
-        Route::get('/riri-story-books', function (){
+        Route::get('/riri-story-books', function () {
             return "Riri Story Books";
         });
-        Route::get('/kolak-kids-song', function (){
+        Route::get('/kolak-kids-song', function () {
             return "Kolak Kids Song";
         });
     });
@@ -73,16 +73,17 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/articles', ArticleController::class);
 
     Route::get('/article/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
+    Route::get('/nilai_pdf/{id}', [MahasiswaController::class, 'cetak_pdf'])->name('cetak');
 
-    Route::prefix('program')->group(function(){
+    Route::prefix('program')->group(function () {
         Route::get('/', [ProgramController::class, 'index']);
-        Route::get('/karir', function (){
+        Route::get('/karir', function () {
             return "Karir";
         });
-        Route::get('/magang', function (){
+        Route::get('/magang', function () {
             return "Magang";
         });
-        Route::get('/kunjungan-industri', function (){
+        Route::get('/kunjungan-industri', function () {
             return "Kunjungan Industri";
         });
     });
@@ -94,4 +95,3 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dosen', [DosenModelController::class, 'index'])->name('dosen');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-

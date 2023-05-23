@@ -37,11 +37,7 @@ class MahasiswaMataKuliahSeeder extends Seeder
                     'matakuliah_id' => 4,
                     'nilai' => 'A',
                 ],
-                [
-                    'mahasiswa_id' => 2,
-                    'matakuliah_id' => 1,
-                    'nilai' => 'A',
-                ],
-            ]);
+            ]
+        );
     }
 }

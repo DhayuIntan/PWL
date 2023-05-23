@@ -27,6 +27,14 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><b>NIM : </b>{{ $mhs->nim }}</li>
                             <li class="list-group-item"><b>Nama : </b>{{ $mhs->nama }}</li>
+                            <li class="list-group-item"><b>Foto : </b><br>
+                                @if ($mhs->foto)
+                                    <img style="max-width:100px;max-height:100px"
+                                        src="{{ url('storage') . '/' . $mhs->foto }}">
+                                @else
+                                    [Picture Not Found]
+                                @endif
+                            </li>
                             <li class="list-group-item"><b>Gender :
                                 </b>{{ $mhs->jk == 'L' ? 'Laki-Laki' : 'Perempuan' }}</li>
                             <li class="list-group-item"><b>Kelas : </b>{{ $mhs->kelas->nama_kelas }}</li>

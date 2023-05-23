@@ -22,12 +22,10 @@
                     </div>
 
                     <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                        title="Collapse">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i class="fas fa-minus"></i>
                         </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove"
-                        title="Remove">
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -44,24 +42,32 @@
                         </thead>
                         <tbody>
                             @if ($mm->count() > 0)
-                            @foreach ($mm as $m)
-                                <tr>
-                                    <td>{{$m->matakuliah->nama_matkul}}</td>
-                                    <td>{{$m->matakuliah->sks}}</td>
-                                    <td>{{$m->matakuliah->semester}}</td>
-                                    <td>{{$m->nilai}}</td>
-                                </tr>
-                            @endforeach
+                                @foreach ($mm as $m)
+                                    <tr>
+                                        <td>{{ $m->matakuliah->nama_matkul }}</td>
+                                        <td>{{ $m->matakuliah->sks }}</td>
+                                        <td>{{ $m->matakuliah->semester }}</td>
+                                        <td>{{ $m->nilai }}</td>
+                                    </tr>
+                                @endforeach
                             @else
-                            <tr>
-                                <td colspan="4" class="text-center">
-                                    Data Tidak ada
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td colspan="4" class="text-center">
+                                        Data Tidak ada
+                                    </td>
+                                </tr>
                             @endif
                         </tbody>
                     </table>
-                    <a class="btn btn-success mt3" href="{{ route('mahasiswa.index') }}">Kembali</a>
+
+                </div>
+                <div class="card-body">
+                    <div class="float-left my-2">
+                        <a class="btn btn-success mt3" href="{{ route('mahasiswa.index') }}">Kembali</a>
+                    </div>
+                    <div class="float-right my-2">
+                        <a class="btn btn-danger mt3" href="{{ route('cetak', $mhs->id) }}">Cetak PDF</a>
+                    </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

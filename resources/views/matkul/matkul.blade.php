@@ -44,10 +44,11 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Kode</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Dosen</th>
                         <th scope="col">SKS</th>
+                        <th scope="col">Jam</th>
+                        <th scope="col">Semester</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,10 +59,10 @@
                         @foreach ($matkul as $item)
                             <tr>
                                 <th scope="row">{{ $id++ }}</th>
-                                <td>{{ $item->kode_matkul }}</td>
                                 <td>{{ $item->nama_matkul }}</td>
-                                <td>{{ $item->dosen_matkul }}</td>
                                 <td>{{ $item->sks }}</td>
+                                <td>{{ $item->jam }}</td>
+                                <td>{{ $item->semester }}</td>
                                 <td>
                                     <!-- Bikin tombol edit dan delete -->
                                     <a href="{{ url('/matkul/' . $item->id_matkul . '/edit') }}"

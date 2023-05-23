@@ -50,11 +50,11 @@ class MahasiswaMatakuliah extends Controller
         $nilai = Mahasiswa_MataKuliah::where('mahasiswa_id', $id)->get();
         $mahasiswa = MahasiswaModel::where('id', $id)->first();
         $mahasiswamatakuliah = Mahasiswa_MataKuliah::with('mahasiswa', 'matakuliah')
-        ->where('mahasiswa_id', $id)->get();
+            ->where('mahasiswa_id', $id)->get();
         return view('mahasiswa.nilai')
-        ->with('mhs', $mahasiswa)
-        ->with('mm', $mahasiswamatakuliah)
-        ->with('nilai', $nilai);
+            ->with('mhs', $mahasiswa)
+            ->with('mm', $mahasiswamatakuliah)
+            ->with('nilai', $nilai);
     }
 
     /**
