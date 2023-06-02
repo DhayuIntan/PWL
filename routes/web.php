@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/matkul', MatkulModelController::class);
     Route::resource('/hobi', HobiModelController::class);
     Route::resource('/keluarga', KeluargaModelController::class);
+    Route::post('/mahasiswa/data', [MahasiswaController::class, 'data']);
 
     Route::prefix('products')->group(function () {
         Route::get('/', [ProductController::class, 'index']);

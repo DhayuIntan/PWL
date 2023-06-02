@@ -101,8 +101,8 @@
                         <div class="form-group">
                             <label>No. HP</label>
                             <input class="form-control @error('hp') is-invalid @enderror"
-                                value="{{ isset($mhs) ? $mhs->hp : old('hp') }}" name="hp"
-                                type="text" placeholder="Masukkan No. HP" />
+                                value="{{ isset($mhs) ? $mhs->hp : old('hp') }}" name="hp" type="text"
+                                placeholder="Masukkan No. HP" />
                             @error('hp')
                                 <span class="error invalid-feedback">{{ $message }}</span>
                             @enderror

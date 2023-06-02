@@ -18,22 +18,22 @@ class MahasiswaMataKuliahSeeder extends Seeder
         DB::table('mahasiswa_matakuliah')->insert(
             [
                 [
-                    'mahasiswa_id' => 1,
+                    'mahasiswa_id' => 9,
                     'matakuliah_id' => 1,
                     'nilai' => 'A',
                 ],
                 [
-                    'mahasiswa_id' => 1,
+                    'mahasiswa_id' => 9,
                     'matakuliah_id' => 2,
-                    'nilai' => 'B',
+                    'nilai' => 'A',
                 ],
                 [
-                    'mahasiswa_id' => 1,
+                    'mahasiswa_id' => 9,
                     'matakuliah_id' => 3,
                     'nilai' => 'B',
                 ],
                 [
-                    'mahasiswa_id' => 1,
+                    'mahasiswa_id' => 9,
                     'matakuliah_id' => 4,
                     'nilai' => 'A',
                 ],
